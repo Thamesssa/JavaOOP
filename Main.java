@@ -1,7 +1,11 @@
 public static void main(String[] args) {
  
-    Person person1 = new Person("John", 30, "USA");
+    ModArrayList person1 = new ModArrayList();
 
-    System.out.println(person1.getName());
+    person1.add("John");   
+    person1.add("Doe");
+    person1.add("Smith");
+
+    System.out.println(person1.getUsingMod(1000256)); // John
 
 }
