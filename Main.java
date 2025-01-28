@@ -17,7 +17,7 @@ public class Main {
     public static void addRandomNumber(ArrayList<Integer> list) {
         Random random = new Random();
         int originalSize = list.size();
-        while (list.size() == originalSize) {
+        while (originalSize+1 != list.size()) {
             int randomNumber = random.nextInt(1000); // Generate a random number between 0 and 999
             list.add(randomNumber);
         }
