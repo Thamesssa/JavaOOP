@@ -1,27 +1,29 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 
-public class OddArrayList extends ArrayList<Integer> {
+public class ConditionArrayList extends ArrayList<Integer> {
+    private Predicate<Interger> condition;
 
-
-    public OddArrayList(Integer... nums){
-        super(Arrays.stream(nums).filter(OddArrayList::isOdd).collect(Collectors.toList()));
+    public ConditionArrayList(Predicate<Integer> condition, Integer... nums){
+        super(Arrays.stream(nums).filter(condition).collect(Collectors.toList()));
+        this.condition = condition;
     }
 
     @Override
     public void add(int index, Integer element){
-        if(isOdd(element)){
+        if(isEligible(element)){
             super.add(index, element);
         }
     }
 
     @Override
     public boolean add(Integer element){
-        if(isOdd(element)){
+        if(isEligable(element)){
             return super.add(element);
         }else{
             return false;
@@ -30,12 +32,12 @@ public class OddArrayList extends ArrayList<Integer> {
 
     @Override
     public boolean addAll(int index, Collection<? extends Integer> c){
-        return super.addAll(c.stream().filter(OddArrayList::isOdd).collect(Collectors.toList()));
+        return super.addAll(c.stream().filter(ConditionArrayList::isOdd).collect(Collectors.toList()));
     }
 
     @Override
     public boolean addAll(Collection<? extends Integer> c){
-        return super.addAll(c.stream().filter(OddArrayList::isOdd).collect(Collectors.toList()));
+        return super.addAll(c.stream().filter(ConditionArrayList::isOdd).collect(Collectors.toList()));
         
     }
 

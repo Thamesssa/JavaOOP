@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        OddArrayList oddList = new OddArrayList(1, 2, 3, 4, 7, 9, -13);
+        ConditionArrayList oddList = new ConditionArrayList(1, 2, 3, 4, 7, 9, -13);
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 7, 9, -13));
 
         addRandomNumber(oddList);
