@@ -7,11 +7,15 @@ import java.util.stream.Collectors;
 
 
 public class ConditionArrayList extends ArrayList<Integer> {
-    private Predicate<Interger> condition;
+    private Predicate<Integer> condition;
 
     public ConditionArrayList(Predicate<Integer> condition, Integer... nums){
         super(Arrays.stream(nums).filter(condition).collect(Collectors.toList()));
         this.condition = condition;
+    }
+    
+    public ConditionArrayList() {
+        super();
     }
 
     @Override
@@ -20,14 +24,16 @@ public class ConditionArrayList extends ArrayList<Integer> {
             super.add(index, element);
         }
     }
-
     @Override
-    public boolean add(Integer element){
-        if(isEligable(element)){
-            return super.add(element);
-        }else{
-            return false;
+    public boolean add(Integer integer) {
+        if (integer % 2 != 0) {
+            return super.add(integer);
         }
+        return false;
+    }
+
+    private boolean isEligible(Integer element) {
+        return condition.test(element);
     }
 
     @Override
@@ -63,3 +69,7 @@ public class ConditionArrayList extends ArrayList<Integer> {
 
     }
 }
+
+    
+
+    
