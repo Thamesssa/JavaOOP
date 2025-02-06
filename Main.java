@@ -13,7 +13,19 @@ public class Main {
 
         System.out.println("OddList: " + oddList);
         System.out.println("List: " + list);
+
+        oddList.removeAllEven();
+        System.out.println("odd list after removing even numbers " + oddList);
+
+        int sum = oddList.sum();
+        System.out.println("Sum of elements in OddList: " + sum);
+
+        int max = oddList.max();
+        System.out.println("Maximum element ");
     }
+
+
+
 
     public static void addRandomNumber(ArrayList<Integer> list) {
         Random random = new Random();

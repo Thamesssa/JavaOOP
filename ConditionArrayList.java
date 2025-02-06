@@ -68,6 +68,21 @@ public class ConditionArrayList extends ArrayList<Integer> {
         return Math.abs(element) % 2 == 1;
 
     }
+
+
+    public void removeAllEven(){
+        super.removeIf(n -> !isOdd(n));
+    }
+
+    public int sum(){
+        return this.stream().mapToInt(Integer::intValue).max().orElse(Integer.MIN_VALUE);
+
+       
+    }
+
+    public int max(){
+        return this.stream().mapToInt(Integer::intValue).max().orElse(Integer.MIN_VALUE);
+    }
 }
 
     
