@@ -83,6 +83,14 @@ public class ConditionArrayList extends ArrayList<Integer> {
     public int max(){
         return this.stream().mapToInt(Integer::intValue).max().orElse(Integer.MIN_VALUE);
     }
+
+    public int product(){
+        return this.stream().mapToInt(Integer::intValue).reduce(1, (a, b) -> a * b);
+    }
+
+    public int min(){
+        return this.stream().mapToInt(Integer::intValue).min().orElse(Integer.MAX_VALUE);
+    }
 }
 
     
