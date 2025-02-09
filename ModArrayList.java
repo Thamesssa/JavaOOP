@@ -21,4 +21,8 @@ public class ModArrayList extends ArrayList<Integer> {
     public boolean addAll(Collection<? extends Integer> c) {
         return super.addAll(c.stream().filter(i -> i % modValue == 0).collect(Collectors.toList()));
     }
+
+    public double average() {
+        return this.stream().mapToInt(Integer::intValue).average().orElse(Double.NaN);
+    }
 }
